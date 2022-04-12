@@ -13,12 +13,23 @@ public class SceneChanger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            //SceneManager.LoadScene(index);
+            if (levelName == "RightChanger")
 
-            SceneManager.LoadScene(levelName);
-        }
+            {
+                Camera.main.transform.position = new Vector3(Camera.main.transform.position.x + 20, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            }
+            else
+            {
+                Camera.main.transform.position = new Vector3(Camera.main.transform.position.x - 20, Camera.main.transform.position.y, Camera.main.transform.position.z);
+            }
 
 
+           }
 
+    }
+
+    private void Start()
+    {
+        levelName = gameObject.name;
     }
 }
